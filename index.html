@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>svg font</title>
+    <meta charset="utf-8">
+    <script src="js/raphael-min.js"></script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/multiColorfont.js"></script>
+     
+    <style>
+    h2 { margin:5px; font-size: 50px; font-family: Helvetica, Arial; color: #aaa;}
+
+    .arrow {
+      text-align: center;
+      clear: both;
+      width: 1000px;
+      font-size: 100px;
+    }
+
+    body {
+      background-color: #333;
+    }
+
+    p {
+      color: #999;
+      font-family: Helvetica, Arial, Sans-serif;
+      line-height: 1.8;
+      letter-spacing: 0.2px;
+    }
+
+    .block {
+      width: 40%;
+      padding: 1%;
+      float: left;
+    }
+
+  
+    #container {
+      width: 1220px;
+      margin-left: auto;
+      margin-right: auto;
+
+    }    
+
+    </style>
+
+  </head>
+
+  <body> 
+
+<div id="container">
+
+  <div class="block">
+    <h2>
+      MULTI COLOR
+    </h2>
+  </div>
+
+  <div class="block">
+    <h2>
+      ideopraxist
+    </h2>
+  </div>
+
+  <div class="block">
+    <h2>
+      Magenta
+    </h2>
+  </div>
+
+  <div class="block">
+    <h2>
+      COUCH POTATO
+    </h2>
+  </div>
+
+  <div class="arrow">
+    <p>
+      ⬇
+    </p>
+  </div>
+
+  <div class="block">
+
+    <h2 class="colorfont1">MULTI COLOR</h2>
+
+    <p>
+      Based on the files from the Multicolore-'font' created by Ivan Filipov, www.neogrey.com. 
+    </p>
+
+  </div>
+
+  <div class="block">
+
+    <h2 class="colorfont2">ideopraxist</h2>
+
+    <p>
+      Lorem ipsum dolor sit amet,
+      consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+      exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+      dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est
+      laborum.
+    </p>
+
+  </div>
+
+  <div class="block">
+
+    <h2 class="colorfont3">Magenta</h2>
+    <p>  
+      Lorem ipsum dolor sit
+      amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+      ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+      esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+      id est laborum.
+  </p>
+
+  </div>
+
+  <div class="block">
+
+    <h2 class="colorfont4">COUCH POTATO</h2>
+    <p>  
+      Lorem ipsum dolor sit
+      amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
+      ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+      nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit
+      esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+      id est laborum.
+    </p>
+
+  </div>
+
+</div>
+
+  <script>
+
+    $("h2.colorfont1").multiColorFont({
+      url: "fonts/multicolore/multicolore2.svgfont.svg",
+      styles: [
+        {fill: "RGBA(237, 46,  56, 0.65  )", stroke: "none"},
+        {fill: "RGBA(0, 140, 204, 0.65 )", stroke: "none"} ,
+        {fill: "RGBA(0, 171, 89, 0.65  )", stroke: "none"} , 
+        {fill: "RGBA(247, 217, 23, 0.65  )", stroke: "none"} ]
+    });
+    
+    $("h2.colorfont2").multiColorFont({
+      url: "fonts/geometric/geometric.colorfont.svg",
+      styles: [
+        {fill: "RGBA(237, 46,  56, 0.7  )", stroke: "none"},
+        {fill: "RGBA(0, 140, 204, 0.7 )", stroke: "none"} ,
+        {fill: "RGBA(0, 171, 89, 0.7  )", stroke: "none"} , 
+        {fill: "RGBA(247, 217, 23, 0.7  )", stroke: "none"} ]
+    });
+    
+    $("h2.colorfont3").multiColorFont({
+      url: "fonts/sylar_stencil/Sylar-Stencil.font.svg",
+      styles: [
+        {stroke: "magenta", fill: "none"},
+        {stroke: "cyan", fill: "none"} ,
+        {stroke: "yellow", fill: "none"} , 
+      ]
+    });
+
+    $("h2.colorfont4").multiColorFont({
+      url: "fonts/athletic/athletic.font.svg",
+      styles: [
+        {stroke: "none", fill: "white"},
+        {stroke: "none", fill: "magenta"},
+        {stroke: "none", fill: "RGBA(255,255,255,0.5)"},
+        {stroke: "none", fill: "RGBA(0,0,0,0.5)"} , 
+        {stroke: "none", fill: "RGBA(0,0,0,0.25)"} , 
+        {stroke: "none", fill: "none"} ]
+    });
+
+
+
+  </script
+
+
+  </body>
+</html>
