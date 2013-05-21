@@ -3,7 +3,14 @@ require 'builder'
 
 
 def product_xml
-  alphabet = ('0'..'9').to_a + ('a'..'z').to_a + ('A'..'Z').to_a + ["!","?","(",")","@", "€", "$",".",",",":",";","%","&","#", "*", "-", "+", "|", "/"] + "-¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿×ßÀàÁáÂâÃãÄäÅåÆæÇçÈèÉéÊêËëÌìÍíÎîÏïÐðÑñÒòÓóÔôÕõÖö÷ØøÙùÚúÛûÜüÝýÞþŸÿŒœŠšŽžƒˆ˜–—‘’‚“”„†‡•…‰‹›€™".each_char.to_a
+  alphabet = [" "] 	#at the very least, we need a space character
+  alphabet = alphabet +  ('A'..'Z').to_a
+  #alphabet = alphabet +  ('a'..'z').to_a
+  #alphabet = alphabet +  ('0'..'9').to_a  
+  #alphabet = alphabet +  "!?().,;:".each_char.to_a 
+  #alphabet = alphabet +  "{}[]%&*@-+|/".each_char.to_a 
+  #alphabet = alphabet +  "-¡¢£¤¥¦§¨©ª«¬®¯°±²³´µ¶·¸¹º»¼½¾¿×ˆ˜–—‘’‚“”„†‡•…‰‹›$€™".each_char.to_a 
+  #alphabet = alphabet +  "ßÀàÁáÂâÃãÄäÅåÆæÇçÈèÉéÊêËëÌìÍíÎîÏïÐðÑñÒòÓóÔôÕõÖö÷ØøÙùÚúÛûÜüÝýÞþŸÿŒœŠšŽžƒ".each_char.to_a
   
   xml = Builder::XmlMarkup.new( :indent => 2 )
   xml.instruct! :xml, :encoding => "ASCII"
