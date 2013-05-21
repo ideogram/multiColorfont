@@ -7,26 +7,26 @@ See: http://ideogram.nl/multiColorfont/ for a demo.
 
 See: https://github.com/ideogram/multiColorfont.git
 
-### What does it do?
+### _What does it do?_
 
 MultiColorFont displays fonts on a webpage rendered in multiple colors.
 
-It turns dynamically (i.e.: on page-load) the content of HTML-element into
+It turns dynamically (i.e.: on page-load) the content of an HTML-element into
 colored characters. So, your originally boring looking H2 in Arial will be
-turned into a header made from multi-colored characters. How does it do that?
+turned into a header made of multi-colored characters. How does it do that?
 
 By using a jQuery-plugin and a specially prepared SVG-font in a CUFON-like manner.
 
-Colorfont is a jQuery-plugin that uses the Raphael-library for writing to
+Colorfont is a jQuery-plugin that uses the Raphael-library for writing 
 vectors to the canvas. It makes use of a SVG-font that has been especially
 prepared to contain multiple layers of colors. The colorfont-plugin adds this
 font as an object to the DOM (in the same way Flash-objects ar added.) It is
 then read out and written to a canvas on the same position as the the original
 element.
 
-### How do I use them on my page?
+### _How do I use them on my page?_
 
-Download the attached zip-file. It contains:
+Download the whole project from GitHub and upload it to your website.
 
 * an example HTML document (index.html) that's pretty self-explanatory if you 
   have some HTML/jQuery knowledge.
@@ -35,7 +35,7 @@ Download the attached zip-file. It contains:
 * some example SVG-fonts
 * some ruby scripts to assist in the font making. (More on that later...)
 * Choose your font and the colors in the arguments of the multiColor-function 
-  call. Or: just look at the multiColorfont.html page and with some basic knowledge 
+  call. Or: just look at the index.html page and with some basic knowledge 
   of HTML, you'll be able to figure it out.
 
 The multiColorfont.html-file should be the only place you'll need to adjust.
@@ -45,7 +45,7 @@ Some things to keep in mind:
 * The colorfont should on the same server as the page requesting it.
 * The size the colorfont is rendered in, is determined by the CSS-font size of the original tag.
 
-### How do I create my own SVG-multicolored-font?
+### _How do I create my own SVG-multicolored-font?_
 
 Actually, that's the bottleneck at the time of writing this documentation.
 I've made some scripts to assist in the making of it, but as they're very
@@ -119,27 +119,55 @@ characters you want. When you're done drawing, run the script template2font.rb
 to turn your drawing in a svg-color font.
 
 * when you're done creating your character, make sure all the objects are
-turned into paths. All the parts of the character that should end up having
-the same color, should be 'merged' or "united" into one single path. To be
-sure, give them all a different color. 
-* the actual colors are ignored by
-jQuery plug-in. The color that each path within a glyph gets, is dependend on
-the colors assigned in the arguments calling the jQuery plugin. * make sure
-there are no groups in a glyph 
-* Inkscape has the annoying tendecy to store
-tranforsmations in a path. To get rid of them, select all paths and nudge them
-back and forth once using the arrow-keys on the keyboard. 
-* The pink rectangles should *not* be turned into paths. Position the right side of them
-to the left-most part of your character. My script uses these rectangles to 
-store the width of the character 
+  turned into paths. All the parts of the character that should end up having
+  the same color, should be 'merged' or "united" into one single path. To be
+  sure, give them all a different color. 
+
+* the actual colors are ignored by the jQuery plug-in. The color that each 
+  path within a glyph gets, is dependend on the colors assigned in the arguments 
+  calling the jQuery plugin. 
+
+* make sure there are no _groups_ left in a glyph 
+
+* Inkscape has the annoying tendecy to store tranforsmations in a path. To 
+  get rid of them, select all paths and nudge them back and forth once using the 
+  arrow-keys on the keyboard. 
+
+* The pink rectangles should *not* be turned into paths. Position the right side
+  of them to the left-most part of your character. My script uses these 
+  rectangles to  store the width of the character 
+
 * To create the final svg font, invoke the
-ruby script _template2font.rb_ with the name of your drawing as the only
-argument:  `ruby template2font.rb myfirstfont.template.svg' 
-* the script will
-then write out a file called _myfirstfont.font.svg._ This is the multiColorfont
-file. 
+  ruby script _template2font.rb_ with the name of your drawing as the only
+  argument:  `ruby template2font.rb myfirstfont.template.svg' 
+
+* the script will then write out a file called _myfirstfont.font.svg._ This 
+  is the multiColorfont
+  file. 
+
 * the resulting SVG-font can actually be opened in FontForge and saved
-as, for example, as TTF
+  as, for example, as TTF
+
+* The Ruby script is still quite 'buggy'. It breaks down in version 2.0 of Ruby
+  but I've seen it working on ruby 1.8.6 - 1.9.2. You'll need to have the
+  gems  'builder', 'nokogiri' and 'open-uri' installed.
+
+#### TODO-list
+
+* Improvements on the Ruby-scripts:
+	* package them as gems
+	* less error-prone
+	* more options:
+		* choose between storing glyphs in de glyph-element or in the path-elements
+		* automatic sorting of layers by color
+	* write more beautifull code :)
+* Improvements on the jQuery-plugin
+	* faster? 
+	* allow the fonts to span multiple lines
+	* get rid of the Raphael.js dependency (allow I'm very gratefull for their work!)
+	* Allow for kerning-pairs
+* Improvements on the fonts:
+	* more fonts with larger character-sets
 
 
 
